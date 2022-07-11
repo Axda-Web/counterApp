@@ -1,12 +1,14 @@
 import React from 'react'
 
+import StyledCounter from './Counter.styled'
+
 const Counter = ({ count, handlePlusBtnClick, handleMinusBtnClick }) => {
   return (
-    <div>
-      <div>{count}</div>
-      <button onClick={handlePlusBtnClick}>+</button>
-      <button onClick={handleMinusBtnClick}>-</button>
-    </div>
+    <StyledCounter>
+      <div className='count'>{count}</div>
+      <button className='btn btn--plus' onClick={handlePlusBtnClick}>+</button>
+      <button className='btn btn--minus' onClick={handleMinusBtnClick}>-</button>
+    </StyledCounter>
   )
 }
 
