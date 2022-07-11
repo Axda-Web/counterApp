@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 
 import Counter from '../Counter/Counter'
+import CounterArea from '../context/CounterArea'
+
+
 
 const CounterContainer = () => {
+
 
 const [count, setCount] = useState(0)
 
@@ -15,10 +19,9 @@ const handleMinusBtnClick = () => {
 }
 
   return (
-    <Counter  count={count}
-              handlePlusBtnClick={handlePlusBtnClick}
-              handleMinusBtnClick={handleMinusBtnClick}
-            />
+    <CounterArea counter={{count, handlePlusBtnClick, handleMinusBtnClick}}>
+      <Counter />
+    </CounterArea>
   )
 }
 

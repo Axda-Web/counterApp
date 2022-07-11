@@ -1,8 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import StyledCounter from './Counter.styled'
+import { CounterContext } from '../context/CounterArea'
 
-const Counter = ({ count, handlePlusBtnClick, handleMinusBtnClick }) => {
+
+
+const Counter = () => {
+
+  const { count, handlePlusBtnClick, handleMinusBtnClick } = useContext(CounterContext)
+
   return (
     <StyledCounter>
       <div className='count'>{count}</div>
