@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 import Counter from '../Counter/Counter'
 import CounterArea from '../context/CounterArea'
 
+import { ErrorBoundary } from 'react-error-boundary'
+import { logError, ErrorFallback } from '../../Error'
+
 
 
 const CounterContainer = () => {
@@ -20,7 +23,9 @@ const handleMinusBtnClick = () => {
 
   return (
     <CounterArea counter={{count, handlePlusBtnClick, handleMinusBtnClick}}>
-      <Counter />
+      <ErrorBoundary onError={logError} FallbackComponent={ErrorFallback} >
+        <Counter />
+      </ErrorBoundary>
     </CounterArea>
   )
 }
